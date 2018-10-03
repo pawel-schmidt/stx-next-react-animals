@@ -29,6 +29,6 @@ const AnimalsForm = ({ onSubmit, isSending }) => {
 AnimalsForm.propTypes = {
   onSubmit: T.func.isRequired,
   isSending: T.bool.isRequired
-}
+};
 
 export default AnimalsForm;
