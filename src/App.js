@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ShibesForm from './components/AnimalsForm';
-import ShibesGallery from './components/ShibesGallery';
-import ShibesService from './ShibesService';
+import AnimalsForm from './components/AnimalsForm';
+import AnimalsGallery from './components/AnimalsGallery';
+import AnimalsService from './AnimalsService';
 import './App.css';
 
 class App extends Component {
@@ -13,17 +13,17 @@ class App extends Component {
     };
     this.onSubmit = this.onSubmit.bind(this);
   }
-  onSubmit(shibesType, shibesCount) {
+  onSubmit(animalsType, animalsCount) {
     this.setState({ isSending: true });
-    ShibesService.getShibes(shibesType, shibesCount)
+    AnimalsService.getAnimals(animalsType, animalsCount)
       .then(images => this.setState({ images }))
       .finally(() => this.setState({ isSending: false }));
   }
   render() {
     return (
       <div className="App">
-        <ShibesForm onSubmit={this.onSubmit} isSending={this.state.isSending} />
-        <ShibesGallery images={this.state.images} />
+        <AnimalsForm onSubmit={this.onSubmit} isSending={this.state.isSending} />
+        <AnimalsGallery images={this.state.images} />
       </div>
     );
   }
