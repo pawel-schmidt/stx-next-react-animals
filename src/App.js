@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
+import ShibesForm from './components/AnimalsForm';
 import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+  onSubmit(count) {
+    console.log(`App#onSubmit(${count})`);
+  }
   render() {
     return (
       <div className="App">
+        <ShibesForm onSubmit={this.onSubmit} isSending={false} />
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
