@@ -2,11 +2,12 @@ import React from "react";
 import T from "prop-types";
 
 const AnimalsForm = ({ onSubmit, isSending }) => {
-  const countInputRef = React.createRef();
+  const shibesCountRef = React.createRef();
+  const shibesTypeRef = React.createRef();
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    onSubmit(countInputRef.current.value);
+    onSubmit(shibesTypeRef.current.value, shibesCountRef.current.value);
   };
 
   const animalOptions = [
@@ -18,8 +19,8 @@ const AnimalsForm = ({ onSubmit, isSending }) => {
 
   return (
     <form className="AnimalsForm" onSubmit={onFormSubmit}>
-      <label>Liczba zdjęć: <input ref={countInputRef} type="number" min="1" max="10" defaultValue="5" /></label>
-      <select>{animalOptions}</select>
+      <label>Liczba zdjęć: <input ref={shibesCountRef} type="number" min="1" max="10" defaultValue="5" /></label>
+      <select ref={shibesTypeRef}>{animalOptions}</select>
       <input type="submit" value="Szukaj" disabled={isSending} />
     </form>
   );
