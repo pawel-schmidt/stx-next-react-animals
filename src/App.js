@@ -8,21 +8,21 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isSending: false,
+      isLoading: false,
       images: []
     };
     this.onSubmit = this.onSubmit.bind(this);
   }
   onSubmit(animalsType, animalsCount) {
-    this.setState({ isSending: true });
+    this.setState({ isLoading: true });
     AnimalsService.getAnimals(animalsType, animalsCount)
       .then(images => this.setState({ images }))
-      .finally(() => this.setState({ isSending: false }));
+      .finally(() => this.setState({ isLoading: false }));
   }
   render() {
     return (
       <div className="App">
-        <AnimalsForm onSubmit={this.onSubmit} isSending={this.state.isSending} />
+        <AnimalsForm onSubmit={this.onSubmit} isLoading={this.state.isLoading} />
         <AnimalsGallery images={this.state.images} />
       </div>
     );

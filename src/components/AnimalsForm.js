@@ -1,7 +1,7 @@
 import React from "react";
 import T from "prop-types";
 
-const AnimalsForm = ({ onSubmit, isSending }) => {
+const AnimalsForm = ({ onSubmit, isLoading }) => {
   const animalsCountRef = React.createRef();
   const animalsTypeRef = React.createRef();
 
@@ -21,14 +21,14 @@ const AnimalsForm = ({ onSubmit, isSending }) => {
     <form className="AnimalsForm" onSubmit={onFormSubmit}>
       <label>Liczba zdjęć: <input ref={animalsCountRef} type="number" min="1" max="10" defaultValue="5" /></label>
       <select ref={animalsTypeRef}>{animalOptions}</select>
-      <input type="submit" value="Szukaj" disabled={isSending} />
+      <input type="submit" value={isLoading ? "Ładowanie danych" : "Szukaj"} disabled={isLoading} />
     </form>
   );
 };
 
 AnimalsForm.propTypes = {
   onSubmit: T.func.isRequired,
-  isSending: T.bool.isRequired
+  isLoading: T.bool.isRequired
 };
 
 export default AnimalsForm;
