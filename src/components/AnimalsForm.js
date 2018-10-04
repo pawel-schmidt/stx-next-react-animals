@@ -1,5 +1,6 @@
 import React from "react";
 import T from "prop-types";
+import "./AnimalsForm.css";
 
 const AnimalsForm = ({ onSubmit, isLoading }) => {
   const animalsCountRef = React.createRef();
@@ -18,11 +19,13 @@ const AnimalsForm = ({ onSubmit, isLoading }) => {
   ].map(animal => <option value={animal.value} key={animal.value}>{animal.label}</option>);
 
   return (
-    <form className="AnimalsForm" onSubmit={onFormSubmit}>
-      <label>Liczba zdjęć: <input ref={animalsCountRef} type="number" min="1" max="10" defaultValue="5" /></label>
-      <select ref={animalsTypeRef}>{animalOptions}</select>
-      <input type="submit" value={isLoading ? "Ładowanie danych" : "Szukaj"} disabled={isLoading} />
-    </form>
+    <div className="AnimalsForm">
+      <form onSubmit={onFormSubmit}>
+        <label><span>Liczba zdjęć:</span><input ref={animalsCountRef} type="number" min="1" max="10" defaultValue="5" /></label>
+        <select ref={animalsTypeRef}>{animalOptions}</select>
+        <input type="submit" value={isLoading ? "Ładowanie danych" : "Szukaj"} disabled={isLoading} />
+      </form>
+    </div>
   );
 };
 

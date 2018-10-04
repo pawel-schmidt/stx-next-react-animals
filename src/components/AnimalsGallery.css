@@ -1,0 +1,29 @@
+.AnimalsGallery {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.AnimalsGallery ul {
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1em;
+}
+
+.AnimalsGallery img {
+  width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+  .AnimalsGallery ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .AnimalsGallery ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

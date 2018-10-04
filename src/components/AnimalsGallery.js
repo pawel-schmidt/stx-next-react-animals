@@ -1,5 +1,6 @@
 import React from "react";
 import T from "prop-types";
+import "./AnimalsGallery.css";
 
 const AnimalsGallery = ({ images }) => (
   <div className="AnimalsGallery">
